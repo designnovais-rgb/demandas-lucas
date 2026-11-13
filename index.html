@@ -1,0 +1,250 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><style>html{color-scheme:dark;background:#000}body{margin:0}</style><title>Demandas Volta ao Jogo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Poppins:wght@700&family=Inter:wght@400;500&display=swap">
+<style>
+/* Layout: mobile-first stack of glass cards over a drifting blue glow, giant dim title behind, sticky glass total bar */
+:root{
+  --bg:#000000;
+  --fg:#f4f7fb;
+  --muted:#9aa3b0;
+  --glass:rgba(8,9,12,.55);
+  --glass-hi:rgba(22,14,40,.5);
+  --line:rgba(255,255,255,.16);
+  --line-hi:rgba(190,160,255,.55);
+  --blue:#6b3cff;
+  --cyan:#a98bff;
+  --ice:#d9c8ff;
+  --title:#0e1d4a;
+  --display:"Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --body:"Inter","Helvetica Neue",Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+
+/* ambient glow */
+.glow{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.glow span{position:absolute;border-radius:50%;filter:blur(40px)}
+/* swirl atrás do título, à direita do centro */
+.g1{width:min(70vw,620px);height:min(95vw,820px);left:50%;top:-6%;transform-origin:center;background:
+  radial-gradient(ellipse 38% 46% at 42% 46%,#000 55%,transparent 72%),
+  radial-gradient(ellipse 60% 62% at 50% 50%,#7a4dff 0%,#4a22c9 38%,#22105f 58%,transparent 74%);
+  opacity:.95;animation:drift 24s ease-in-out infinite alternate}
+.g1::after{content:"";position:absolute;inset:18% 8% 30% 46%;border-radius:50%;background:radial-gradient(circle,rgba(210,185,255,.85),rgba(130,80,255,.4) 45%,transparent 70%);filter:blur(30px)}
+/* faixa azul que desce até a base, como na referência */
+.g2{width:min(48vw,420px);height:min(90vw,760px);left:22%;top:55%;background:radial-gradient(ellipse 40% 50% at 50% 50%,#6a3dff 0%,#3a19a8 45%,transparent 72%);opacity:.9;animation:drift 30s ease-in-out infinite alternate-reverse}
+.g3{display:none}
+.ribbon{position:absolute;left:28%;width:min(70vw,640px);top:52%;height:min(9vw,80px);border-radius:50%;background:linear-gradient(100deg,transparent 0%,rgba(225,205,255,.7) 40%,rgba(160,120,255,.35) 65%,transparent 100%);filter:blur(16px);transform:rotate(-24deg);opacity:.6}
+@keyframes drift{from{transform:translate(-30%,0) rotate(0deg)}to{transform:translate(-36%,3%) rotate(8deg)}}
+
+.wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:14px 140px}
+
+/* nav pill */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;letter-spacing:-.01em;font-size:15px}
+.logo i{width:26px;height:14px;border-radius:14px 14px 4px 14px;background:var(--fg);display:block;transform:skewX(-14deg)}
+.nav{display:flex;gap:2px;padding:4px;border-radius:999px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.nav a{color:var(--muted);text-decoration:none;font-size:13px;padding:7px 12px;border-radius:999px;white-space:nowrap}
+.nav a:hover,.nav a:focus-visible{color:var(--fg);outline:none}
+.nav a.on{background:var(--fg);color:#05070b;font-weight:500}
+
+/* hero */
+.hero{position:relative;padding-top:48px}
+.brand{font-family:var(--display);font-weight:500;font-size:clamp(22px,6.4vw,44px);letter-spacing:-.03em;background:linear-gradient(180deg,var(--ice),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;text-align:right;position:relative;z-index:2}
+.giant{font-family:var(--display);font-weight:600;font-size:1em;line-height:.8;letter-spacing:-.06em;color:var(--title);margin:-.08em 0 0 -.04em;user-select:none;position:relative;z-index:0;white-space:nowrap;
+  display:grid;width:max-content;max-width:100%;opacity:.55}
+.giant-row{display:flex;align-items:flex-end;font-size:clamp(56px,19vw,210px);position:relative;z-index:0;max-width:100%}
+.giant{font-family:"Poppins",var(--display);font-weight:700;letter-spacing:-.035em;line-height:.95;opacity:.55}
+.giant span{grid-area:1/1;padding-bottom:.24em;margin-bottom:-.18em;
+  background:linear-gradient(90deg,#140b30 0%,#2e1670 25%,#4f2bb0 45%,#7550e0 60%,#a98bff 71%,#8f6fe6 78%,#6548b0 88%,#4a3388 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+/* camada desfocada aparece só nas pontas; a nítida some nas laterais */
+.giant .gb{filter:blur(3.5px);-webkit-mask-image:linear-gradient(90deg,#000 0%,transparent 12%,transparent 88%,#000 100%);mask-image:linear-gradient(90deg,#000 0%,transparent 12%,transparent 88%,#000 100%)}
+.giant .gs{-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.35) 0%,#000 12%,#000 88%,rgba(0,0,0,.35) 100%);mask-image:linear-gradient(90deg,rgba(0,0,0,.35) 0%,#000 12%,#000 88%,rgba(0,0,0,.35) 100%)}
+.giant{margin:-.08em 0 0 -.075em}
+.intro{position:relative;z-index:2;display:grid;gap:14px;margin-top:18px}
+.intro p{margin:0;color:var(--muted);max-width:52ch;font-size:14px}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:12px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--fg)}
+.chip b{font-weight:500;color:var(--ice)}
+
+/* controls */
+.controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:26px 0 14px;position:relative;z-index:2}
+.controls h2{margin:0;font-family:var(--display);font-weight:500;font-size:18px;letter-spacing:-.01em}
+.switch{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--fg);background:none;border:0;padding:4px;font-family:inherit}
+.switch .track{width:44px;height:26px;border-radius:999px;background:var(--fg);position:relative;transition:background .25s}
+.switch .track::after{content:"";position:absolute;top:3px;left:21px;width:20px;height:20px;border-radius:50%;background:#05070b;transition:left .25s}
+.switch[aria-pressed="false"] .track{background:rgba(255,255,255,.18)}
+.switch[aria-pressed="false"] .track::after{left:3px;background:var(--fg)}
+.switch:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:999px}
+
+/* cards */
+.grid{display:grid;grid-template-columns:1fr;gap:14px;position:relative;z-index:2}
+.card{position:relative;border-radius:28px;padding:22px 20px 20px;background:var(--glass);border:1px solid var(--line);
+  backdrop-filter:blur(26px) saturate(140%);-webkit-backdrop-filter:blur(26px) saturate(140%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 20px 50px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:14px;min-width:0}
+.card .when{font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;display:flex;justify-content:space-between;gap:8px}
+.card h3{margin:0;font-family:var(--display);font-weight:400;font-size:21px;letter-spacing:-.015em;line-height:1.15;text-wrap:balance}
+.price{font-family:var(--display);font-weight:400;font-size:38px;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+.price small{font-size:15px;color:var(--muted);letter-spacing:0;margin-left:4px}
+.price.tbd{font-size:24px;color:var(--muted)}
+.conta{font-size:12.5px;color:var(--ice);margin-top:-6px}
+.desc{margin:0;color:var(--muted);font-size:13px}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.list li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;font-size:13.5px;color:#d9e1ec}
+.list li::before{content:"";width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.5 12.5l3.6 3.4 7.4-7.6' fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat;margin-top:-1px}
+.compact .list,.compact .desc{display:none}
+
+/* total card (highlight like the reference Pro plan) */
+.card.total{background:linear-gradient(160deg,rgba(169,139,255,.45) 0%,rgba(107,60,255,.32) 35%,rgba(22,14,40,.55) 75%);border-color:var(--line-hi);box-shadow:0 0 0 1px rgba(150,110,255,.25),0 0 40px rgba(150,110,255,.28),inset 0 0 30px rgba(150,110,255,.12)}
+.card.total .price{font-size:44px}
+.rows{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.rows li{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:#d9e1ec;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:8px;font-variant-numeric:tabular-nums}
+.rows li span:first-child{min-width:0}
+.rows li span:last-child{white-space:nowrap;color:var(--fg)}
+.btn{appearance:none;border:0;border-radius:999px;background:var(--fg);color:#05070b;font:500 14px var(--body);padding:12px 22px;cursor:pointer;align-self:center;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.pix{font-size:12px;color:var(--muted);text-align:center}
+.pix code{font-family:var(--body);color:var(--fg);user-select:all}
+.prev{margin-top:18px;position:relative;z-index:2;font-size:12.5px;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.prev b{color:var(--fg);font-weight:500}
+
+/* sticky bar (mobile) */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+.bar-in{max-width:560px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 10px 10px 20px;border-radius:999px;background:rgba(10,14,22,.62);border:1px solid var(--line);backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%);box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.bar small{display:block;font-size:11px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.bar strong{font-family:var(--display);font-weight:500;font-size:20px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.bar .btn{padding:11px 18px}
+
+.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translate(-50%,10px);opacity:0;z-index:30;background:var(--fg);color:#05070b;font-size:13px;padding:9px 16px;border-radius:999px;transition:.25s;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (min-width:640px){
+  .grid{grid-template-columns:1fr 1fr}
+  .card.total{grid-column:1/-1}
+}
+@media (min-width:960px){
+  .wrap{padding-block:22px 80px}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .card.total{grid-column:auto}
+  .bar{display:none}
+  .intro{grid-template-columns:1fr auto;align-items:end}
+}
+@media (max-width:400px){
+  .nav a{padding:7px 9px;font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){.glow span{animation:none}}
+</style>
+
+<div class="glow" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span><div class="ribbon"></div></div>
+
+<div class="wrap">
+  <header class="top">
+    <div class="logo"><i aria-hidden="true"></i>Ryan Novaes</div>
+    <nav class="nav" aria-label="Seções">
+      <a href="#demandas" class="on">Demandas</a>
+      <a href="#total">Total</a>
+      <a href="#total" data-copy>PIX</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="giant-row" aria-hidden="true"><div class="giant"><span class="gb">Entregas</span><span class="gs">Entregas</span></div></div>
+    <div class="intro">
+      <p>Resumo das demandas do lançamento da imersão Volta ao Jogo entregues depois do último acerto, para conferência e pagamento.</p>
+      <div class="meta">
+        <span class="chip">Período <b>27/10 a 08/11/2026</b></span>
+        <span class="chip">Cliente <b>Lucas Firgon</b></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="controls" id="demandas">
+    <h2>6 demandas</h2>
+    <button class="switch" id="detail" type="button" aria-pressed="true"><span class="track" aria-hidden="true"></span>Detalhado</button>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+</div>
+
+<div class="bar" id="bar">
+  <div class="bar-in">
+    <div><small>Total</small><strong id="barTotal">R$ 0,00</strong></div>
+    <button class="btn" type="button" data-copy>Copiar PIX</button>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+// Valores: preencher "valor" (número em reais). null = a definir.
+const DEMANDAS=[
+  {data:"27–28/10",titulo:"Novos Ads Quiz",valor:450,conta:"9 vídeos × R$ 50",desc:"Anúncios em vídeo no formato de tela dividida (Remessa 6).",itens:["9 anúncios em vídeo editados","Formato tela dividida","Entregue em 28/10"]},
+  {data:"31/10–01/11",titulo:"Criativos de lembrete da imersão",valor:350,conta:"3 vídeos × R$ 50 + 5 imagens × R$ 40",desc:"Contagem regressiva para a abertura da imersão (Remessa 7).",itens:["3 vídeos: Faltam 5, 3 e 2 dias","5 imagens: Faltam 5, 3 e 2 dias, É amanhã e É hoje","Entregue em 01/11"]},
+  {data:"07–08/11",titulo:"VSL Upsell Operação Shark",valor:350,conta:"VSL de 7min44s",desc:"Edição completa da VSL de upsell a partir do material bruto.",itens:["Cortes, motions e ilustrações","Trilha e efeitos sonoros","Correção de fonte após revisão","Entregue em 08/11"]},
+  {data:"08/11",titulo:"Página de upsell",valor:0,brinde:true,desc:"Página lucasfirgon.com/vsl para a oferta de upsell.",itens:["VSL do upsell embutida","Botão direto para o checkout","No ar em 08/11"]},
+  {data:"07–08/11",titulo:"Apresentação da imersão",valor:850,conta:"47 slides (dia 1 e dia 2)",desc:"Slides completos da imersão, incluindo o pitch.",itens:["Dia 1: 7 slides","Dia 2: 40 slides, com o pitch completo","Entregue no Google Slides em 08/11"]},
+  {data:"No período",titulo:"Landing page da mentoria Individual (Iury)",valor:800,conta:"Página para o assessor Iury",desc:"Landing page da mentoria Individual, feita para o Iury.",itens:["Design da página","Página montada para publicação"]}
+];
+const PIX_CHAVE="67016341000126";
+const PIX_LABEL="67.016.341/0001-26";
+
+const brl=v=>v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+const grid=document.getElementById("grid");
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function render(){
+  const definidos=DEMANDAS.filter(d=>typeof d.valor==="number");
+  const total=definidos.reduce((a,d)=>a+d.valor,0);
+  const faltam=DEMANDAS.length-definidos.length;
+  let html=DEMANDAS.map(d=>`
+    <article class="card">
+      <div class="when"><span>${esc(d.data)}</span></div>
+      <h3>${esc(d.titulo)}</h3>
+      ${d.brinde
+        ? `<div class="price">Brinde</div>`
+        : typeof d.valor==="number"
+        ? `<div class="price">${brl(d.valor)}</div>${d.conta?`<div class="conta">${esc(d.conta)}</div>`:""}`
+        : `<div class="price tbd">a definir</div>`}
+      <p class="desc">${esc(d.desc)}</p>
+      <ul class="list">${d.itens.map(i=>`<li>${esc(i)}</li>`).join("")}</ul>
+    </article>`).join("");
+  html+=`
+    <article class="card total" id="total">
+      <div class="when"><span>Valor total</span><span>${DEMANDAS.length} demandas</span></div>
+      <div class="price">${brl(total)}</div>
+      ${faltam?`<p class="desc" style="display:block">${faltam} ${faltam>1?"valores ainda a definir":"valor ainda a definir"}.</p>`:""}
+      <ul class="rows">${DEMANDAS.map(d=>`<li><span>${esc(d.titulo)}</span><span>${d.brinde?"Brinde":typeof d.valor==="number"?brl(d.valor):"—"}</span></li>`).join("")}</ul>
+      <button class="btn" type="button" data-copy>Copiar chave PIX</button>
+      <div class="pix">PIX CNPJ · <code id="pixText">${PIX_LABEL}</code><br>Ryan Novaes</div>
+    </article>`;
+  grid.innerHTML=html;
+  document.getElementById("barTotal").textContent=brl(total);
+}
+render();
+
+const detail=document.getElementById("detail");
+try{if(localStorage.getItem("vaj-detail")==="0"){detail.setAttribute("aria-pressed","false");grid.classList.add("compact")}}catch(e){}
+detail.addEventListener("click",()=>{
+  const on=detail.getAttribute("aria-pressed")!=="true";
+  detail.setAttribute("aria-pressed",String(on));
+  grid.classList.toggle("compact",!on);
+  try{localStorage.setItem("vaj-detail",on?"1":"0")}catch(e){}
+});
+
+const toast=document.getElementById("toast");let tt;
+function say(m){toast.textContent=m;toast.classList.add("show");clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove("show"),2200)}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-copy]");if(!b)return;
+  e.preventDefault();
+  const fallback=()=>{const el=document.getElementById("pixText");el.scrollIntoView({block:"center",behavior:"smooth"});const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);say("Chave selecionada, copie manualmente")};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(PIX_CHAVE).then(()=>say("Chave PIX copiada")).catch(fallback)}else fallback();
+});
+
+document.querySelectorAll(".nav a").forEach(a=>a.addEventListener("click",()=>{document.querySelectorAll(".nav a").forEach(x=>x.classList.remove("on"));a.classList.add("on")}));
+</script>
+</html>
